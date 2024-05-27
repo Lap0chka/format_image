@@ -1,10 +1,66 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Your convertor</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 <body>
-$END$
+<div class="signupSection">
+  <div class="info">
+    {%if original_image %}
+      <h2>Here is your original picture</h2>
+      <i class="icon ion-ios-ionic-outline" aria-hidden="true"></i>
+      <img src="{{ original_image }}" id="image" class="bottom-image">
+    {%else%}
+      <h2>Here will be your picture</h2>
+    {%endif%}
+  </div>
+  <form action="" method="POST" class="signupForm" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h2>Chose your picture</h2>
+    {{form.original_file}}
+    <ul class="noBullet">
+      <li>
+          <label for="output"></label>
+          {{form.output_name}}
+      </li>
+      <li>
+      <h3>Delete background?</h3>
+      <div class="q-container">
+        <div class="main">
+           {{ form.is_del_background }}
+          <label class="capsule" for="hidcheck" id="capsule-id">
+            <div class="circle"></div>
+            <div class="text-signs">
+              <span id="on"></span>
+            </div>
+          </label>
+        </div>
+      </div>
+      <li id="center-btn">
+        <input type="submit" id="join-btn" name="join" alt="Join" value="Send">
+      </li>
+    </ul>
+  </form>
+</div>
+
+<script>
+  window.onload = function() {
+    var img = document.getElementById('image');
+    if (img.naturalWidth > img.naturalHeight) {
+      img.style.width = '85%';
+      img.style.height = 'auto';
+    } else {
+      img.style.width = 'auto';
+      img.style.height = '85%';
+    }
+  };
+</script>
+
+<script src="{%static 'js/main.js' %}"></script>
 </body>
 </html>
+
+

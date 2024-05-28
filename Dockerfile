@@ -16,7 +16,7 @@ RUN pip install --upgrade pip
 # Установим рабочую директорию
 WORKDIR /app
 
-# Скопируем файл requirements.txt и установим зависимости
+
 COPY format_image/requirements.txt ./
 RUN pip install --default-timeout=1000 --no-cache-dir -r requirements.txt
 

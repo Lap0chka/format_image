@@ -1,13 +1,14 @@
+from celery import shared_task
+import os
 from rembg import remove
 from PIL import Image
-from django.conf import settings
-import os
+from datetime import datetime, timedelta
 
 
-def remove_background(file):
-    input_file = Image.open(file)
-    output = remove(input_file)
-    return output
+@shared_task
+def delete_image(path):
+    os.remove(path)
+
 
 
 

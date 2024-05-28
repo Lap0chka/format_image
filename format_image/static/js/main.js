@@ -6,3 +6,17 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
             document.getElementById('output').value = fileNameWithoutExtension;
         }
     });
+
+window.onload = function() {
+var img = document.getElementById('image');
+if (img.naturalWidth > img.naturalHeight) {
+  img.style.width = '85%';
+  img.style.height = 'auto';
+} else {
+  img.style.width = 'auto';
+  img.style.height = '85%';
+}
+};
+
+
+

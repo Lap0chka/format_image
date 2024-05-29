@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .forms import ImageForm
 
+from .forms import ImageForm
 from .function import remove_background
 
 

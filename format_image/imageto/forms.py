@@ -28,6 +28,5 @@ class ImageForm(forms.Form):
         ('', 'Select a format'),
         ('jpg', 'JPG'),
         ('png', 'PNG'),
-        # Добавьте другие варианты по мере необходимости
     ]
     format_choice = forms.ChoiceField(choices=options, widget=forms.Select(attrs={'class': 'inputFields'}))

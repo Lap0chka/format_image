@@ -5,14 +5,6 @@ from rembg import remove
 
 from .tasks import delete_image
 
-# def save_uploaded_file(original_image):
-#     file_name = original_image.name
-#     with open(f'media/{file_name}', 'wb') as destination:
-#         for chunk in original_image.chunks():
-#             destination.write(chunk)
-#
-#     return file_name
-
 
 def remove_background(file_path, output_name, format_image, is_delete=False):
     """Remove background function"""
